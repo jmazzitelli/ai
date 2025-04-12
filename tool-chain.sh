@@ -23,7 +23,24 @@ Available tools:
 When you want to use a tool, respond ONLY with a JSON object like:
 { "tool": "tool_name", "args": { "param1": "value1", ... } }
 
-Otherwise, respond with a normal natural language reply.
+If the question is about something else (history, math, general knowledge, etc.), respond with a natural language answer and DO NOT call a tool.
+
+Examples:
+
+User: What's the weather in Tokyo?
+Assistant: { "tool": "get_weather", "args": { "city": "Tokyo" } }
+
+User: What time is it in London?
+Assistant: { "tool": "get_time", "args": { "city": "London" } }
+
+User: Who is George Washington?
+Assistant: George Washington was the first president of the United States.
+
+User: What's 2 + 2?
+Assistant: 2 + 2 is 4.
+
+User: Tell me a joke.
+Assistant: What kind of tree fits in your hand? A palm tree.
 """
 
 def call_llama2(prompt):
